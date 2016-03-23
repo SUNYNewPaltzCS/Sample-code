@@ -1,5 +1,5 @@
 <?php
-require_once 'google-api-php-client/autoload.php';
+require_once 'google-api-php-client/src/Google/autoload.php';
 
 session_start();
 $client = new Google_Client();
