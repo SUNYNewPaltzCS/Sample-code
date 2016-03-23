@@ -1,6 +1,6 @@
 <?php
 require_once 'google-api-php-client/src/Google/autoload.php';
-
+//test
 session_start();
 $client = new Google_Client();
 $client->setAuthConfigFile('client_secrets.json');
