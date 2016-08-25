@@ -1,0 +1,11 @@
+table Poughkeepsie_Sanitation
+camera 0 image
+gpsLoc 0 latitude longitude
+gpsTracker 1 1800000 latTrack longTrack
+datetime date
+id truckID
+run 1 run
+directory sanitation
+email simonsj@newpaltz.edu
+unique tons
+endFile
