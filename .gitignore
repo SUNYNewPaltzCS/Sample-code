@@ -1,3 +1,4 @@
 /google-api-php-client/*
 client_secrets.json
 private/*
+node_modules/*

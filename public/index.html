@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            test
+        </title>
+    	<script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script>
+            var auth = function() {
+              $.get('/fusiontable', function(data,status) {
+                  window.location.href = data;
+              });
+            };
+            var tabled;
+            $.get('/fusiontable/table',function(data,status) {
+                $("#ftArea").html(JSON.stringify(data));
+            });
+        </script>
+    </head>
+    <body>
+        <button onclick="auth()">Authenticate</button>
+        <div id="ftArea">
+            Not authenticated...
+        </div>
+    </body>
+</html>
