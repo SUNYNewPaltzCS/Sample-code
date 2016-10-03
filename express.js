@@ -23,7 +23,7 @@ app.get("/fusiontable", function(req, res) {
     })
     .get("/fusiontable/auth", function(req, res) {
         fusiontable.oauthcallback(req.query.code, function(err, rows) {
-            console.log("Grab " + err);
+            console.log("Grab " + rows);
             if (err != null) {
                 loggedIn = true;
             }
@@ -41,11 +41,5 @@ app.get("/fusiontable", function(req, res) {
             });
         }
     })
-    .post("/runs", function(req, res) {
-        /*runs.post(req.start,req.end,function(err,rows) {
-            res.send(rows);
-        });
-        */
-    });
 
 app.listen(process.env.PORT);

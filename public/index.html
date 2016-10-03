@@ -13,6 +13,7 @@
             var tabled;
             $.get('/fusiontable/table',function(data,status) {
                 $("#ftArea").html(JSON.stringify(data));
+                console.log(data);
             });
         </script>
     </head>

@@ -20,7 +20,7 @@ var ft = google.fusiontables('v2');
 
 // Client ID and client secret are available at
 // https://code.google.com/apis/console
-var client_secrets = JSON.parse(fs.readFileSync('client_secrets.json'));
+var client_secrets = JSON.parse(fs.readFileSync('/home/ubuntu/workspace/client_secrets.json'));
 var CLIENT_ID = client_secrets.web.client_id;
 var CLIENT_SECRET = client_secrets.web.client_secret;
 var REDIRECT_URL = 'https://builder2-deisingj1.c9users.io/fusiontable/auth';
@@ -31,6 +31,11 @@ google.options({
 });
 
 module.exports = {
+    setRefreshToken: function(tokens) {
+        oauth2Client.setCredentials({
+            refresh_token: tokens.refresh_token
+        });
+    },
     blank: function() {
         return {};
     },
@@ -39,7 +44,7 @@ module.exports = {
             access_type: 'offline', // will return a refresh token
             scope: 'https://www.googleapis.com/auth/fusiontables.readonly' // can be a space-delimited string or an array of scopes
         });
-        ret(null,url);
+        ret(null, url);
     },
     oauthcallback: function(code, ret) {
         oauth2Client.getToken(code, function(err, tokens) {
@@ -53,13 +58,16 @@ module.exports = {
                 if (err) {
                     console.log('An error occured', err);
                 }
-                ret(err,tokens);
+                ret(err, profile);
             });
         });
     },
     tables: function(ret) {
-      ft.table.list([],[],function(err, list) {
-          ret(err,list);
-      });  
+        ft.table.list({}, [], function(err, profile) {
+            if (err) {
+                console.log('An error occured', err);
+            }
+            ret(err, profile);
+        });
     }
 };
