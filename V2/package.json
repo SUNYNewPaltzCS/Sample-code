@@ -1,0 +1,11 @@
+{
+  "name" : "BDSP_Builder",
+  "version" : "0.0.1",
+  "dependencies" : {
+    "express" : "",
+    "morgan" : "",
+    "compression" : "",
+    "body-parser" : "",
+    "method-override" : ""
+  }
+}
