@@ -1,4 +1,5 @@
-var express = require('express'),
+var config = require('./config')
+express = require('express'),
 morgan = require('morgan'),
 compression = require('compression'),
 bodyParser = require('body-parser'),
@@ -15,10 +16,22 @@ module.exports = function() {
 
   app.use(bodyParser.urlencoded({
     extended: true
-  }))
+  }));
   app.use(bodyParser.json());
   app.use(methodOverride());
 
+  app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: config.sessionSecret
+  }));
+
+  app.set('views', './app/views');
+  app.set('view engine', 'ejs');
+
   require('../app/routes/index.server.routes.js')(app);
+
+  app.use(express.static('./public'));
+
   return app;
 };
