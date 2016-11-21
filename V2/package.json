@@ -6,8 +6,6 @@
     "morgan" : "",
     "compression" : "",
     "body-parser" : "",
-    "method-override" : "",
-    "express-sessions" : "",
-    "ejs" : ""
+    "method-override" : ""
   }
 }

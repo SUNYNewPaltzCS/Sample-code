@@ -1,3 +1,0 @@
-modules.exports = {
-  sessionSecret: 'developmentSessionSecret'
-};
